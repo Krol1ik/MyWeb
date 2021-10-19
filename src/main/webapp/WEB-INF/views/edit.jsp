@@ -1,14 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@page isELIgnored = "false" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 12.10.2021
-  Time: 14:43
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<html>
 <html>
 <head>
     <title>Costumer</title>
@@ -32,10 +26,14 @@
 
         <div>
             <ul class="nav navbar-nav">
-                <li> <a href="/costumer">Все пользователи</a> </li>
-                <li> <a href="/costumer/searchById">Найти пользователя</a> </li>
-                <li><a href="/costumer/new">Создать пользователя</a> </li>
+                <li> <a href="/costumer"><spring:message code="app.nav.cust"/></a> </li>
+                <li><a href="/costumer/new"><spring:message code="app.nav.create"/></a> </li>
             </ul>
+            <div class="btn-group-vertical">
+                <a type="button" class="btn btn-info" href="?lang=en"><spring:message code="app.lang.english"/></a>
+                <a type="button" class="btn btn-primary" href="?lang=ru"><spring:message code="app.lang.russia"/></a>
+            </div>
+
         </div>
     </div>
 </nav>

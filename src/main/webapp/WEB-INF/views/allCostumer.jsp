@@ -1,18 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@page isELIgnored = "false" %>
 
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 12.10.2021
-  Time: 14:43
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Costumer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title><spring:message code="app.title"/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Latest compiled and minified CSS -->
@@ -33,13 +26,14 @@
 
         <div>
             <ul class="nav navbar-nav">
-                <li> <a href="/costumer">Все пользователи</a> </li>
-                <li> <a href="/costumer/searchById">Найти пользователя</a> </li>
-                <li><a href="/costumer/new">Создать пользователя</a> </li>
-<%--                <li><a href="#">Удалить пользователя</a> </li>--%>
-<%--                <li><a href="#">Обновить пользователя</a> </li>--%>
-                <li></li>
+                <li> <a href="/costumer"><spring:message code="app.nav.cust"/></a> </li>
+                <li><a href="/costumer/new"><spring:message code="app.nav.create"/></a> </li>
             </ul>
+            <div class="btn-group-vertical">
+                <a type="button" class="btn btn-info" href="?lang=en"><spring:message code="app.lang.english"/></a>
+                <a type="button" class="btn btn-primary" href="?lang=ru"><spring:message code="app.lang.russia"/></a>
+            </div>
+
         </div>
     </div>
 </nav>
@@ -47,12 +41,12 @@
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">First name</th>
-        <th scope="col">Last name</th>
-        <th scope="col">Phone number</th>
-        <th scope="col">Email</th>
-        <th scope="col">Login</th>
-        <th scope="col">Password</th>
+        <th scope="col"><spring:message code="app.page.firstname"/></th>
+        <th scope="col"><spring:message code="app.page.lastname"/></th>
+        <th scope="col"><spring:message code="app.page.phonenumber"/></th>
+        <th scope="col"><spring:message code="app.page.email"/></th>
+        <th scope="col"><spring:message code="app.page.login"/></th>
+        <th scope="col"><spring:message code="app.page.password"/></th>
         <th></th>
     </tr>
     </thead>
@@ -66,9 +60,9 @@
         <td>${costumers.email}</td>
         <td>${costumers.login}</td>
         <td>${costumers.password}</td>
-        <td><input type="button" value="Обновить" onClick='location.href="http://localhost:8080/costumer/${costumers.id}/edit"'>
+        <td><input type="button" value=<spring:message code="app.button.update"/> onClick='location.href="http://localhost:8080/costumer/${costumers.id}/edit"'>
             <form method="post" action="/costumer/${costumers.id}/delete">
-            <input type="submit" value="Удалить" onClick='location.href="http://localhost:8080/costumer/${costumers.id}/delete"'>
+            <input type="submit" value=<spring:message code="app.button.delete"/> onClick='location.href="http://localhost:8080/costumer/${costumers.id}/delete"'>
             </form>
         </td>
     </tr>

@@ -54,16 +54,4 @@ public class CostumerController {
         serviceCostumer.deleteCostumer(id);
         return "redirect:/costumer";
     }
-
-    @GetMapping("/searchById")
-    public String show (){
-
-        return "searchById";
-    }
-
-    @GetMapping("/show/{id}")
-    public String showById (@PathVariable("id") int id, Model model){
-        model.addAttribute("costumer", serviceCostumer.getCostumer(id));
-        return "/show";
-    }
 }
